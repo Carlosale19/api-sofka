@@ -15,8 +15,7 @@ class NoTripuladas extends Naves {
     public function __construct($nombre, $combustible ,$funcion ,$primer_lanzamiento , $ultimo_lanzamiento, 
     $estado, $pais, $velocidad, $empuje){
 
-        parent::__construct($nombre, $combustible ,$funcion ,$primer_lanzamiento , $ultimo_lanzamiento, 
-        $estado, $pais);
+        parent::__construct();
         $this->velocidad = $velocidad;
         $this->empuje = $empuje;
         $this->nombre_nave = $nombre;

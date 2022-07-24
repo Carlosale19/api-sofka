@@ -76,6 +76,18 @@ class Tripuladas extends Naves implements tripulantes{
         curl_setopt($ch,CURLOPT_RETURNTRANSFER, true);
         $result = curl_exec($ch);
         
+        echo $result;
+
+        if(curl_exec($ch) === false)
+        {
+            echo 'Curl error: ' . curl_error($ch);
+        }
+        else
+        {
+            echo 'Operación completada sin errores';
+        }
+        curl_close($ch);
+>>>>>>> parent of ef0d821 (respuesta servidor)
         header('Location: index.php');
     }
 
