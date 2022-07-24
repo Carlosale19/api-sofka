@@ -50,11 +50,33 @@ class Tripuladas extends Naves implements tripulantes{
 
     }
     
-    static function crearNave($lanzadora){
+    static function crearNave($tripulada){
 
         //Con el objeto que se pase como parametro se va a construir un json 
         //y se va a pasar a la api ya creada para guardarlo en la base de datos
         
+        $data = [
+            'nombre' => $tripulada->nombre,
+            'combustible' => $tripulada->combustible,
+            'funcion' => $tripulada->funcion,
+            'primer_lanzamiento' => $tripulada->primer_lanzamiento,
+            'ultimo_lanzamiento' => $tripulada->ultimo_lanzamiento,
+            'estado' => $tripulada->estado,
+            'pais' => $tripulada->pais,
+            'capacidad_tripulantes' => $tripulada->capacidad_tripulantes,
+            'peso' => $tripulada->peso,
+            'km_orbita' => $tripulada->km_orbita
+        ];
+        $postdata = http_build_query($data);
+        $ch = curl_init();
+        curl_setopt($ch,CURLOPT_URL, 'https://apisofka.devtoulpy.com/api/set-tripuladas');
+        curl_setopt($ch,CURLOPT_POST, true);
+        curl_setopt($ch,CURLOPT_POSTFIELDS, $postdata);
+        curl_setopt($ch,CURLOPT_RETURNTRANSFER, true);
+
+        curl_close($ch);
+        
+        header('Location: index.php');
     }
 
     //Interfaces abstractas para comportamiento de las naves

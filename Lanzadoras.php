@@ -76,17 +76,10 @@ class Lanzadoras extends Naves {
         curl_setopt($ch,CURLOPT_POST, true);
         curl_setopt($ch,CURLOPT_POSTFIELDS, $postdata);
         curl_setopt($ch,CURLOPT_RETURNTRANSFER, true);
-        if(curl_exec($ch) === false)
-        {
-            echo 'Curl error: ' . curl_error($ch);
-        }
-        else
-        {
-            echo 'Operation completed without any errors';
-        }
+
+        curl_close($ch);
         
-        echo 'Entro al metodo';
-        
+        header('Location: index.php');
         
     }
 

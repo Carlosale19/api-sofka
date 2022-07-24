@@ -44,8 +44,44 @@ class Principal{
                 $estado,$pais,$empuje,$potencia,$capacidad_transporte,$altura);
                 Lanzadoras::crearNave($nave);
             }
+            elseif($_POST['tipo'] == 'Tripuladas'){
+
+                $capacidad_tripulantes = $_POST['capacidad_tripulantes'];
+                $peso = $_POST['peso'];
+                $km_orbita = $_POST['km_orbita'];
+                $nave = new Lanzadoras($nombre,$combustible,$funcion,$primer_lanzamiento,$ultimo_lanzamiento,
+                $estado,$pais,$capacidad_tripulantes,$peso,$km_orbita);
+                Tripuladas::crearNave($nave);
+                
+            }
+            elseif($_POST['tipo'] == 'No Tripuladas'){
+
+                $velocidad = $_POST['velocidad'];
+                $empuje = $_POST['peso'];
+                $nave = new Lanzadoras($nombre,$combustible,$funcion,$primer_lanzamiento,$ultimo_lanzamiento,
+                $estado,$pais,$velocidad,$empuje);
+                NoTripuladas::crearNave($nave);
+                
+            }
         }
     }
+
+    /*
+
+    //Funcion para filtrar las naves
+    public static function buscarNave(){
+        //se tiene que seleccionar el tipo y el metodo por el cual se va a filtrar para luego mediante un 
+        //if-else buscar el metodo y filtrar la busqueda
+
+        
+        if (tipo == tripuladas and select == nombre){
+
+            Tripuladas::buscarNavePorNombre();
+
+        }
+    }
+
+    */
 }
 
 

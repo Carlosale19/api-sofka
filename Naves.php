@@ -26,6 +26,9 @@ abstract class Naves {
 
     abstract static function listarNaves();
 
+    //abstract static function buscarNavePorNombre();
+
+
 }
 
 

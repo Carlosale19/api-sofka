@@ -45,11 +45,31 @@ class NoTripuladas extends Naves {
 
     }
     
-    static function crearNave($lanzadora){
-
+    static function crearNave($noTripulada){
         //Con el objeto que se pase como parametro se va a construir un json 
-        //y se va a pasar a la api ya creada para guardarlo en la base de datos
+        //y se va a pasar a la api ya creada para guardarlo en la base de datos}
+
+        $data = [
+            'nombre' => $noTripulada->nombre,
+            'combustible' => $noTripulada->combustible,
+            'funcion' => $noTripulada->funcion,
+            'primer_lanzamiento' => $noTripulada->primer_lanzamiento,
+            'ultimo_lanzamiento' => $noTripulada->ultimo_lanzamiento,
+            'estado' => $noTripulada->estado,
+            'pais' => $noTripulada->pais,
+            'velocidad' => $noTripulada->velocidad,
+            'empuje' => $noTripulada->empuje
+        ];
+        $postdata = http_build_query($data);
+        $ch = curl_init();
+        curl_setopt($ch,CURLOPT_URL, 'https://apisofka.devtoulpy.com/api/set-noTripulada');
+        curl_setopt($ch,CURLOPT_POST, true);
+        curl_setopt($ch,CURLOPT_POSTFIELDS, $postdata);
+        curl_setopt($ch,CURLOPT_RETURNTRANSFER, true);
+
+        curl_close($ch);
         
+        header('Location: index.php');
     }
 
 
