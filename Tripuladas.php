@@ -19,7 +19,7 @@ class Tripuladas extends Naves implements tripulantes{
 
         parent::__construct($nombre, $combustible ,$funcion ,$primer_lanzamiento , $ultimo_lanzamiento, 
         $estado, $pais);
-        $this->capacidad_tripulantes = (int) $capacidad_tripulantes;
+        $this->capacidad_tripulantes = (integer) $capacidad_tripulantes;
         $this->peso =(float) $peso;
         $this->km_orbita =(float) $km_orbita;
         $this->nombre_nave = $nombre;
@@ -75,10 +75,8 @@ class Tripuladas extends Naves implements tripulantes{
         curl_setopt($ch,CURLOPT_POSTFIELDS, $postdata);
         curl_setopt($ch,CURLOPT_RETURNTRANSFER, true);
         $result = curl_exec($ch);
-        echo $result;
-
-        curl_close($ch);
-        //header('Location: index.php');
+        
+        header('Location: index.php');
     }
 
     //Interfaces abstractas para comportamiento de las naves
