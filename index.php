@@ -71,7 +71,7 @@ require 'NoTripuladas.php';
         <!-- inputs para crear naves tripuladas  -->
         <div class="form-tripuladas">
             <label for="capacidad_tripulantes">Numero Tripulantes:</label>
-            <input type="number" name="capacidad_tripulantes" value="">
+            <input type="number" name="capacidad_tripulantes">
 
             <label for="peso">Peso(kg):</label>
             <input type="number" name="peso" value="">
