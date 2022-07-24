@@ -74,7 +74,6 @@ class Tripuladas extends Naves implements tripulantes{
         curl_setopt($ch,CURLOPT_POST, true);
         curl_setopt($ch,CURLOPT_POSTFIELDS, $postdata);
         curl_setopt($ch,CURLOPT_RETURNTRANSFER, true);
-        /*
         $result = curl_exec($ch);
         echo $result;
 
@@ -86,10 +85,8 @@ class Tripuladas extends Naves implements tripulantes{
         {
             echo 'Operación completada sin errores';
         }
-        */
         curl_close($ch);
-        
-        //header('Location: index.php');
+        header('Location: index.php');
     }
 
     //Interfaces abstractas para comportamiento de las naves
