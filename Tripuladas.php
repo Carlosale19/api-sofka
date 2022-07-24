@@ -17,7 +17,8 @@ class Tripuladas extends Naves implements tripulantes{
     public function __construct($nombre, $combustible ,$funcion ,$primer_lanzamiento , $ultimo_lanzamiento, 
     $estado, $pais, $capacidad_tripulantes, $peso, $km_orbita){
 
-        parent::__construct();
+        parent::__construct($nombre, $combustible ,$funcion ,$primer_lanzamiento , $ultimo_lanzamiento, 
+        $estado, $pais);
         $this->capacidad_tripulantes = $capacidad_tripulantes;
         $this->peso =(float) $peso;
         $this->km_orbita =(float) $km_orbita;
