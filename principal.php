@@ -44,7 +44,7 @@ class Principal{
                 $estado,$pais,$empuje,$potencia,$capacidad_transporte,$altura);
                 Lanzadoras::crearNave($nave);
             }
-            elseif($_POST['tipo'] == 'Tripuladas'){
+            elseif($_POST['tipo'] == 'tripuladas'){
 
                 $capacidad_tripulantes = $_POST['capacidad_tripulantes'];
                 $peso = $_POST['peso'];
@@ -54,7 +54,7 @@ class Principal{
                 Tripuladas::crearNave($nave);
                 
             }
-            elseif($_POST['tipo'] == 'No Tripuladas'){
+            elseif($_POST['tipo'] == 'no tripuladas'){
 
                 $velocidad = $_POST['velocidad'];
                 $empuje = $_POST['peso'];
