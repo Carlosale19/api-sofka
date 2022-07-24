@@ -77,16 +77,8 @@ class Tripuladas extends Naves implements tripulantes{
         $result = curl_exec($ch);
         echo $result;
 
-        if(curl_exec($ch) === false)
-        {
-            echo 'Curl error: ' . curl_error($ch);
-        }
-        else
-        {
-            echo 'Operación completada sin errores';
-        }
         curl_close($ch);
-        header('Location: index.php');
+        //header('Location: index.php');
     }
 
     //Interfaces abstractas para comportamiento de las naves
