@@ -49,7 +49,7 @@ class Principal{
                 $capacidad_tripulantes = $_POST['capacidad_tripulantes'];
                 $peso = $_POST['peso'];
                 $km_orbita = $_POST['km_orbita'];
-                $nave = new Lanzadoras($nombre,$combustible,$funcion,$primer_lanzamiento,$ultimo_lanzamiento,
+                $nave = new Tripuladas($nombre,$combustible,$funcion,$primer_lanzamiento,$ultimo_lanzamiento,
                 $estado,$pais,$capacidad_tripulantes,$peso,$km_orbita);
                 Tripuladas::crearNave($nave);
                 
@@ -58,7 +58,7 @@ class Principal{
 
                 $velocidad = $_POST['velocidad'];
                 $empuje = $_POST['peso'];
-                $nave = new Lanzadoras($nombre,$combustible,$funcion,$primer_lanzamiento,$ultimo_lanzamiento,
+                $nave = new NoTripuladas($nombre,$combustible,$funcion,$primer_lanzamiento,$ultimo_lanzamiento,
                 $estado,$pais,$velocidad,$empuje);
                 NoTripuladas::crearNave($nave);
                 
