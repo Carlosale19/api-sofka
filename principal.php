@@ -46,8 +46,8 @@ class Principal{
             }
             elseif($_POST['tipo'] == 'tripuladas'){
 
-                $capacidad_tripulantes = $_POST['capacidad_tripulantes'];
-                var_dump($_POST['capacidad_tripulantes']);die;
+                $capacidad_tripulantes = $_POST['tripulantes'];
+                echo  $_POST['tripulantes'];die;
                 $peso = $_POST['peso'];
                 $km_orbita = $_POST['km_orbita'];
                 $nave = new Tripuladas($nombre,$combustible,$funcion,$primer_lanzamiento,$ultimo_lanzamiento,
