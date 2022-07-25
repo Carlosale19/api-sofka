@@ -106,7 +106,7 @@ class Lanzadoras extends Naves {
 
         $naveBuscada = "";
         foreach($res->data as $nave){
-            if($nave->nombre == $nombre){
+            if($nave->nombre_nave == $nombre){
                 $naveBuscada = $nave;
             }
         }
