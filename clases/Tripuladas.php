@@ -101,7 +101,7 @@ class Tripuladas extends Naves implements tripulantes{
 
         $naveBuscada = "";
         foreach($res->data as $nave){
-            if($nave->nombre == $nombre){
+            if($nave->nombre_nave == $nombre){
                 $naveBuscada = $nave;
             }
         }
