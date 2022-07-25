@@ -71,21 +71,20 @@ class Principal{
     public  static function buscarNave(){
         if(isset($_POST['tipoNave'])){
             if ($_POST['tipoNave'] == 'lanzadoras'){
-                if(isset($_POST['nombreBuscar'])){
+                if($_POST['nombreBuscar'] != ""){
                     $nombre = $_POST['nombreBuscar'];
-                    Lanzadoras::buscarPorNombre($nombre);
-
+                    echo Lanzadoras::buscarPorNombre($nombre);
                 }
-                elseif(isset($_POST['paisBuscar'])){
+                elseif($_POST['paisBuscar'] != ""){
                     $pais = $_POST['paisBuscar'];
-                    Lanzadoras::buscarPorPais($pais);
+                    echo Lanzadoras::buscarPorPais($pais);
                 }
             }elseif($_POST['tipoNave'] == 'tripuladas'){
-                if(isset($_POST['nombreBuscar'])){
+                if($_POST['nombreBuscar'] != ""){
                     $nombre = $_POST['nombreBuscar'];
                     echo Tripuladas::buscarPorNombre($nombre);
                 }
-                elseif(isset($_POST['paisBuscar'])){
+                elseif($_POST['paisBuscar'] != ""){
                     $pais = $_POST['paisBuscar'];
                     echo Tripuladas::buscarPorPais($pais);
                 }
