@@ -115,7 +115,7 @@ require 'NoTripuladas.php';
             <div class="form-row form-no-tripuladas">
                 <div class="form-group col-lg-3 col-12">
                     <label for="velocidad">Velocidad(km/h):</label>
-                    <input type="number" name="capacidad_tripulantes" value="" class="form-control">
+                    <input type="number" name="velocidad" value="" class="form-control">
                 </div>
                 <div class="form-group col-lg-3 col-12">
                     <label for="empuje2">Empuje:</label>
