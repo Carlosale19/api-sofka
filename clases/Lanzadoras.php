@@ -77,10 +77,85 @@ class Lanzadoras extends Naves {
         curl_setopt($ch,CURLOPT_POSTFIELDS, $postdata);
         curl_setopt($ch,CURLOPT_RETURNTRANSFER, true);
 
+        $result = curl_exec($ch);
+        
+        echo $result;
+        
+        if(curl_exec($ch) === false)
+        {
+            echo 'Curl error: ' . curl_error($ch);
+        }
+        else
+        {
+            echo 'Operación completada sin errores';
+        }
+
         curl_close($ch);
         
-        header('Location: index.php');
+        //header('Location: index.php');
         
+    }
+
+    static function buscarPorNombre($nombre){
+        $res = file_get_contents("https://apisofka.devtoulpy.com/api/get-all-lanzadoras");
+        $res = json_decode($res);
+
+        //Generando html
+        $html = "";
+
+        $naveBuscada = "";
+        foreach($res->data as $nave){
+            if($nave->nombre == $nombre){
+                $naveBuscada = $nave;
+            }
+        }
+        if($naveBuscada == ""){
+            echo "no se encontro ninguna nave";
+        }else{
+            $html .= "<ul><li> Nombre: ".$naveBuscada->nombre_nave."</li>";
+            $html .= "<li> Combustible: ".$naveBuscada->combustible."</li>";
+            $html .= "<li>Funcion: ".$naveBuscada->funcion."</li>";
+            $html .= "<li>Primer Lanzamiento: ".$naveBuscada->primer_lanzamiento."</li>";
+            $html .= "<li>Ultimo Lanzamiento: ".$naveBuscada->ultimo_lanzamiento."</li>";
+            $html .= "<li>Estado actual: ".$naveBuscada->estado."</li>";
+            $html .= "<li>Pais: ".$naveBuscada->pais."</li>";
+            $html .= "<li>Empuje: ".$naveBuscada->empuje."</li>";
+            $html .= "<li>Potencia: ".$naveBuscada->potencia."</li>";
+            $html .= "<li>Capacidad de transporte: ".$naveBuscada->capacidad_transporte."</li>";
+            $html .= "<li>Altura: ".$naveBuscada->altura."</li></ul>";
+        }
+
+        return $html;
+    }
+    static function buscarPorPais($pais){
+        $res = file_get_contents("https://apisofka.devtoulpy.com/api/get-all-lanzadoras");
+        $res = json_decode($res);
+
+        //Generando html
+        $html = "";
+
+        $naveBuscada = array();
+
+        foreach($res->data as $nave){
+            if($nave->pais == $pais){
+                array_push($naveBuscada, $nave);
+            }
+        }
+        foreach($naveBuscada as $nave){
+            $html .= "<ul><li> Nombre: ".$nave->nombre_nave."</li>";
+            $html .= "<li> Combustible: ".$nave->combustible."</li>";
+            $html .= "<li>Funcion: ".$nave->funcion."</li>";
+            $html .= "<li>Primer Lanzamiento: ".$nave->primer_lanzamiento."</li>";
+            $html .= "<li>Ultimo Lanzamiento: ".$nave->ultimo_lanzamiento."</li>";
+            $html .= "<li>Estado actual: ".$nave->estado."</li>";
+            $html .= "<li>Pais: ".$naveBuscada->pais."</li>";
+            $html .= "<li>Empuje: ".$naveBuscada->empuje."</li>";
+            $html .= "<li>Potencia: ".$naveBuscada->potencia."</li>";
+            $html .= "<li>Capacidad de transporte: ".$nave->capacidad_transporte."</li>";
+            $html .= "<li>Altura: ".$nave->altura."</li></ul>";
+        }
+
+        return $html;
     }
 
 

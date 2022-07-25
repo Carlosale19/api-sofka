@@ -1,15 +1,17 @@
 <?php 
 
-
-require 'Naves.php';
-require 'Lanzadoras.php';
-require 'Tripuladas.php';
-require 'NoTripuladas.php';
+require 'clases/Naves.php';
+require 'clases/Lanzadoras.php';
+require 'clases/Tripuladas.php';
+require 'clases/NoTripuladas.php';
 
 if(isset($_POST['nombre'])){
     Principal::guardarDatos();
 }
 
+if(isset($_POST['nombreBuscar']) ||isset($_POST['paisBuscar']) ){
+    Principal::buscarNave();
+}
 
 
 //clase donde se van a hacer las validacion y redirigir a los metodos para agregar y filtrar naves
@@ -66,22 +68,39 @@ class Principal{
         }
     }
 
-    /*
+    public  static function buscarNave(){
+        if(isset($_POST['tipoNave'])){
+            if ($_POST['tipoNave'] == 'lanzadoras'){
+                if(isset($_POST['nombreBuscar'])){
+                    $nombre = $_POST['nombreBuscar'];
+                    Lanzadoras::buscarPorNombre($nombre);
 
-    //Funcion para filtrar las naves
-    public static function buscarNave(){
-        //se tiene que seleccionar el tipo y el metodo por el cual se va a filtrar para luego mediante un 
-        //if-else buscar el metodo y filtrar la busqueda
-
-        
-        if (tipo == tripuladas and select == nombre){
-
-            Tripuladas::buscarNavePorNombre();
-
+                }
+                elseif(isset($_POST['paisBuscar'])){
+                    $pais = $_POST['paisBuscar'];
+                    Lanzadoras::buscarPorPais($pais);
+                }
+            }elseif($_POST['tipoNave'] == 'tripuladas'){
+                if(isset($_POST['nombreBuscar'])){
+                    $nombre = $_POST['nombreBuscar'];
+                    echo Tripuladas::buscarPorNombre($nombre);
+                }
+                elseif(isset($_POST['paisBuscar'])){
+                    $pais = $_POST['paisBuscar'];
+                    echo Tripuladas::buscarPorPais($pais);
+                }
+            }elseif($_POST['tipoNave'] == 'no-tripuladas'){
+                if($_POST['nombreBuscar'] != ""){
+                    $nombre = $_POST['nombreBuscar'];
+                    echo NoTripuladas::buscarPorNombre($nombre);
+                }
+                elseif($_POST['paisBuscar'] != ""){
+                    $pais = $_POST['paisBuscar'];
+                    echo NoTripuladas::buscarPorPais($pais);
+                }
+            }
         }
     }
-
-    */
 }
 
 

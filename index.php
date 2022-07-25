@@ -1,9 +1,9 @@
 <?php
 
-require 'Naves.php';
-require 'Lanzadoras.php';
-require 'Tripuladas.php';
-require 'NoTripuladas.php';
+require 'clases/Naves.php';
+require 'clases/Lanzadoras.php';
+require 'clases/Tripuladas.php';
+require 'clases/NoTripuladas.php';
 
 
 ?>
@@ -27,6 +27,7 @@ require 'NoTripuladas.php';
 
     <div class="container">
         <!-- Formulario para crear naves  -->
+        <h2>Agregar Nave</h2>
         <form name="formNave" method="POST" action="principal.php">
             <div class="form-nave">
                 <div class="form-row">
@@ -49,7 +50,7 @@ require 'NoTripuladas.php';
                         <input type="date" name="primer_lanzamiento" value="" class="form-control">
                     </div>
                     <div class="form-group col-lg-4 col-12">
-                        <label for="ultimo_lanzamiento">Primer Lanzamiento:</label>
+                        <label for="ultimo_lanzamiento">Ultimo Lanzamiento:</label>
                         <input type="date" name="ultimo_lanzamiento" value="" class="form-control">
 
                     </div>
@@ -121,6 +122,31 @@ require 'NoTripuladas.php';
                     <label for="empuje2">Empuje:</label>
                     <input type="number" name="empuje2" value="" class="form-control">
 
+                </div>
+            </div>
+            <input type="submit" class="btn-primary p-2 rounded">
+        </form>
+
+        <!-- Formulario para buscar naves  -->
+        <h2>Buscar nave</h2>
+        <form name="formBuscar" method="POST" action="principal.php">
+            <div class="form-row">
+                <div class="form-group col-lg-4 col-12">
+                    <label for="nombreBuscar">Nombre:</label>
+                    <input type="text" name="nombreBuscar" value="" class="form-control">
+                </div>
+                <div class="form-group col-lg-4 col-12">
+                    <label for="paisBuscar">Pais:</label>
+                    <input type="text" name="paisBuscar" value="" class="form-control">
+                </div>
+                <div class="form-group col-lg-4 col-12">
+                    <label>Selecciona el tipo de nave: 
+                    <select name="tipoNave" id="inputTipo" class="form-control" required style="margin-top: 8px;">
+                        <option value="" selected></option>
+                        <option value="lanzadoras">Lanzadoras</option>
+                        <option value="tripuladas">Tripuladas</option>
+                        <option value="no-tripuladas">No tripuladas</option>
+                    </select>
                 </div>
             </div>
             <input type="submit" class="btn-primary p-2 rounded">

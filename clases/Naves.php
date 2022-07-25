@@ -26,9 +26,9 @@ abstract class Naves {
 
     abstract static function listarNaves();
 
-    //abstract static function buscarNavePorNombre();
+    abstract static function buscarPorNombre($nombre);
 
-
+    abstract static function buscarPorPais($pais);
 }
 
 

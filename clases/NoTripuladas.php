@@ -11,6 +11,7 @@ class NoTripuladas extends Naves {
     protected $velocidad;
     protected $empuje;
     protected $nombre_nave;
+    public static $htmlBusqueda;
 
     public function __construct($nombre, $combustible ,$funcion ,$primer_lanzamiento , $ultimo_lanzamiento, 
     $estado, $pais, $velocidad, $empuje){
@@ -88,9 +89,67 @@ class NoTripuladas extends Naves {
         
         header('Location: index.php');
     }
+    static function buscarPorNombre($nombre){
+        $res = file_get_contents("https://apisofka.devtoulpy.com/api/get-all-no-tripuladas");
+        $res = json_decode($res);
 
+        //Generando html
+        $html = "";
+
+        $naveBuscada = "";
+        foreach($res->data as $nave){
+            if($nave->nombre_nave == $nombre){
+                $naveBuscada = $nave;
+            }
+        }
+        if($naveBuscada == ""){
+            echo "no se encontro ninguna nave";
+        }else{
+            $html .= "<ul><li> Nombre: ".$naveBuscada->nombre_nave."</li>";
+            $html .= "<li> Combustible: ".$naveBuscada->combustible."</li>";
+            $html .= "<li>Funcion: ".$naveBuscada->funcion."</li>";
+            $html .= "<li>Primer Lanzamiento: ".$naveBuscada->primer_lanzamiento."</li>";
+            $html .= "<li>Ultimo Lanzamiento: ".$naveBuscada->ultimo_lanzamiento."</li>";
+            $html .= "<li>Estado actual: ".$naveBuscada->estado."</li>";
+            $html .= "<li>Pais: ".$naveBuscada->pais."</li>";
+            $html .= "<li>Velocidad: ".$naveBuscada->velocidad."</li>";
+            $html .= "<li>Empuje: ".$naveBuscada->empuje."</li></ul>";
+        }
+
+        return $html;
+    }
+    static function buscarPorPais($pais){
+        $res = file_get_contents("https://apisofka.devtoulpy.com/api/get-all-no-tripuladas");
+        $res = json_decode($res);
+
+        //Generando html
+        $html = "";
+
+        $naveBuscada = array();
+
+        foreach($res->data as $nave){
+            if($nave->pais == $pais){
+                
+                array_push($naveBuscada, $nave);
+            }
+        }
+        foreach($naveBuscada as $nave){
+            $html .= "<ul><li> Nombre: ".$nave->nombre_nave."</li>";
+            $html .= "<li> Combustible: ".$nave->combustible."</li>";
+            $html .= "<li>Funcion: ".$nave->funcion."</li>";
+            $html .= "<li>Primer Lanzamiento: ".$nave->primer_lanzamiento."</li>";
+            $html .= "<li>Ultimo Lanzamiento: ".$nave->ultimo_lanzamiento."</li>";
+            $html .= "<li>Estado actual: ".$nave->estado."</li>";
+            $html .= "<li>Pais: ".$nave->pais."</li>";
+            $html .= "<li>Velocidad: ".$nave->velocidad."</li>";
+            $html .= "<li>Empuje: ".$nave->empuje."</li></ul>";
+        }
+
+        return $html;
+    }
 
 }
 
 
 ?>
+

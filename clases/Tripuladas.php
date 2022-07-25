@@ -92,6 +92,67 @@ class Tripuladas extends Naves implements tripulantes{
         
         header('Location: index.php');
     }
+    static function buscarPorNombre($nombre){
+        $res = file_get_contents("https://apisofka.devtoulpy.com/api/get-all-tripuladas");
+        $res = json_decode($res);
+
+        //Generando html
+        $html = "";
+
+        $naveBuscada = "";
+        foreach($res->data as $nave){
+            if($nave->nombre == $nombre){
+                $naveBuscada = $nave;
+            }
+        }
+        if($naveBuscada == ""){
+            echo "no se encontro ninguna nave";
+        }else{
+            $html .= "<ul><li> Nombre: ".$naveBuscada->nombre_nave."</li>";
+            $html .= "<li> Combustible: ".$naveBuscada->combustible."</li>";
+            $html .= "<li>Funcion: ".$naveBuscada->funcion."</li>";
+            $html .= "<li>Primer Lanzamiento: ".$naveBuscada->primer_lanzamiento."</li>";
+            $html .= "<li>Ultimo Lanzamiento: ".$naveBuscada->ultimo_lanzamiento."</li>";
+            $html .= "<li>Estado actual: ".$naveBuscada->estado."</li>";
+            $html .= "<li>Pais: ".$naveBuscada->pais."</li>";
+            $html .= "<li>Empuje: ".$naveBuscada->capacidad_tripulantes."</li>";
+            $html .= "<li>Potencia: ".$naveBuscada->peso."</li>";
+            $html .= "<li>Altura: ".$naveBuscada->km_orbita."</li></ul>";
+        }
+
+        return $html;
+    }
+    static function buscarPorPais($pais){
+        $res = file_get_contents("https://apisofka.devtoulpy.com/api/get-all-tripuladas");
+        $res = json_decode($res);
+
+        //Generando html
+        $html = "";
+
+        $naveBuscada = array();
+
+        foreach($res->data as $nave){
+            if($nave->pais == $pais){
+                array_push($naveBuscada, $nave);
+            }
+        }
+        foreach($naveBuscada as $nave){
+            $html .= "<ul><li> Nombre: ".$nave->nombre_nave."</li>";
+            $html .= "<li> Combustible: ".$nave->combustible."</li>";
+            $html .= "<li>Funcion: ".$nave->funcion."</li>";
+            $html .= "<li>Primer Lanzamiento: ".$nave->primer_lanzamiento."</li>";
+            $html .= "<li>Ultimo Lanzamiento: ".$nave->ultimo_lanzamiento."</li>";
+            $html .= "<li>Estado actual: ".$nave->estado."</li>";
+            $html .= "<li>Pais: ".$nave->pais."</li>";
+            $html .= "<li>Empuje: ".$nave->capacidad_tripulantes."</li>";
+            $html .= "<li>Potencia: ".$nave->peso."</li>";
+            $html .= "<li>Altura: ".$nave->km_orbita."</li></ul>";
+        }
+
+        return $html;
+    }
+
+
 
     //Interfaces abstractas para comportamiento de las naves
     function salir_capsula(){
@@ -120,6 +181,8 @@ class Tripuladas extends Naves implements tripulantes{
 
     }
 }
+    
+
 
 
 ?>
