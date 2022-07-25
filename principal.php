@@ -54,7 +54,7 @@ class Principal{
                 Tripuladas::crearNave($nave);
                 
             }
-            elseif($_POST['tipo'] == 'no tripuladas'){
+            elseif($_POST['tipo'] == 'no-tripuladas'){
 
                 $velocidad = $_POST['velocidad'];
                 $empuje = $_POST['empuje2'];
