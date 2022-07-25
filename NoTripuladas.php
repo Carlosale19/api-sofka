@@ -68,6 +68,8 @@ class NoTripuladas extends Naves {
         curl_setopt($ch,CURLOPT_POSTFIELDS, $postdata);
         curl_setopt($ch,CURLOPT_RETURNTRANSFER, true);
         $result = curl_exec($ch);
+
+        /*
         echo $result;
 
         if(curl_exec($ch) === false)
@@ -78,12 +80,13 @@ class NoTripuladas extends Naves {
         {
             echo 'Operación completada sin errores';
         }
+        */
 
         curl_close($ch);
 
         
         
-        //header('Location: index.php');
+        header('Location: index.php');
     }
 
 
