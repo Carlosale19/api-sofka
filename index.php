@@ -197,8 +197,6 @@ require 'clases/NoTripuladas.php';
                                 <th>Capacidad de Tripulantes</th>
                                 <th>peso</th>
                                 <th>km de orbita (km)</th>
-                                <th>Salir de capsula</th>
-                                <th>Entrar de capsula</th>
                             </tr>
                         </thead>
                         <tbody>
