@@ -63,7 +63,7 @@ class NoTripuladas extends Naves {
         ];
         $postdata = http_build_query($data);
         $ch = curl_init();
-        curl_setopt($ch,CURLOPT_URL, 'https://apisofka.devtoulpy.com/api/set-no-ripuladas');
+        curl_setopt($ch,CURLOPT_URL, 'https://apisofka.devtoulpy.com/api/set-no-tripuladas');
         curl_setopt($ch,CURLOPT_POST, true);
         curl_setopt($ch,CURLOPT_POSTFIELDS, $postdata);
         curl_setopt($ch,CURLOPT_RETURNTRANSFER, true);
