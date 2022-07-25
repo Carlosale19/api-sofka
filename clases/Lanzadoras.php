@@ -148,12 +148,12 @@ class Lanzadoras extends Naves {
             $html .= "<li>Funcion: ".$nave->funcion."</li>";
             $html .= "<li>Primer Lanzamiento: ".$nave->primer_lanzamiento."</li>";
             $html .= "<li>Ultimo Lanzamiento: ".$nave->ultimo_lanzamiento."</li>";
-            $html .= "<li>Estado actual: ".$nave->estado."</li>";
+            $html .= "<li>Estado actual: ".$naveBuscada->estado."</li>";
             $html .= "<li>Pais: ".$naveBuscada->pais."</li>";
             $html .= "<li>Empuje: ".$naveBuscada->empuje."</li>";
             $html .= "<li>Potencia: ".$naveBuscada->potencia."</li>";
-            $html .= "<li>Capacidad de transporte: ".$nave->capacidad_transporte."</li>";
-            $html .= "<li>Altura: ".$nave->altura."</li></ul>";
+            $html .= "<li>Capacidad de transporte: ".$naveBuscada->capacidad_transporte."</li>";
+            $html .= "<li>Altura: ".$naveBuscada->altura."</li></ul>";
         }
 
         return $html;
