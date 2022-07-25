@@ -30,30 +30,4 @@ abstract class Naves {
 
     abstract static function buscarPorPais($pais);
 }
-
-
-//Creando comportamientos para cada tipo de nave
-
-//Comportamientos naves tripuladas
-interface tripulantes{
-    function salir_capsula();
-
-    function entrar_capsula();
-}
-
-//Comportamiento naves lanzadoras
-interface carga{
-    function soltar_carga();   
-
-    function probar_carga();
-}
-
-//Comportamientos naves no tripuladas
-interface funcion{
-    
-    function explorar_planeta();
-
-    function estudiar_satelite();
-
-}
 ?>

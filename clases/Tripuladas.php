@@ -6,7 +6,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-class Tripuladas extends Naves implements tripulantes{
+class Tripuladas extends Naves {
 
     protected $capacidad_tripulantes;
     protected $peso;
@@ -44,7 +44,9 @@ class Tripuladas extends Naves implements tripulantes{
             $html .= "<td>".$nave->pais."</td>";
             $html .= "<td>".$nave->capacidad_tripulantes."</td>";
             $html .= "<td>".$nave->peso."</td>";
-            $html .= "<td>".$nave->km_orbita."</td></tr>";
+            $html .= "<td>".$nave->km_orbita."</td>";
+            $html .= "<td><a href='principal.php?funcion=salir'>Salir de capsula</a></td>";
+            $html .= "<td><a href='principal.php?funcion=entrar'>Entrar a la capsula</a></td></tr>";
         }
 
         return $html;
@@ -152,34 +154,6 @@ class Tripuladas extends Naves implements tripulantes{
         return $html;
     }
 
-
-
-    //Interfaces abstractas para comportamiento de las naves
-    function salir_capsula(){
-        
-        if($salieron == false){
-            $mensaje = "los tripulantes salieron de la capsula";
-            $this->salieron = true;
-        }else{
-            $mensaje = "Los tripulantes ya salieron de la nave";
-        }
-        
-        return $salieron;
-
-    }
-
-    function entrar_capsula(){
-
-        if($salieron == true){
-            $mensaje = "los tripulantes entraron a la capsula";
-            $this->salieron = false;
-        }else{
-            $mensaje = "los tripulantes ya habian entrado a la capsula";
-        }
-
-        return $salieron;
-
-    }
 }
     
 

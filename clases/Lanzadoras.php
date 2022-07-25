@@ -159,7 +159,6 @@ class Lanzadoras extends Naves {
         return $html;
     }
 
-
 }
 
 
