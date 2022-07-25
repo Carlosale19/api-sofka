@@ -57,7 +57,7 @@ class Principal{
             elseif($_POST['tipo'] == 'no tripuladas'){
 
                 $velocidad = $_POST['velocidad'];
-                $empuje = $_POST['peso'];
+                $empuje = $_POST['empuje2'];
                 $nave = new NoTripuladas($nombre,$combustible,$funcion,$primer_lanzamiento,$ultimo_lanzamiento,
                 $estado,$pais,$velocidad,$empuje);
                 NoTripuladas::crearNave($nave);
