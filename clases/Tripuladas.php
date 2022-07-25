@@ -44,9 +44,7 @@ class Tripuladas extends Naves {
             $html .= "<td>".$nave->pais."</td>";
             $html .= "<td>".$nave->capacidad_tripulantes."</td>";
             $html .= "<td>".$nave->peso."</td>";
-            $html .= "<td>".$nave->km_orbita."</td>";
-            $html .= "<td><a href='principal.php?funcion=salir'>Salir de capsula</a></td>";
-            $html .= "<td><a href='principal.php?funcion=entrar'>Entrar a la capsula</a></td></tr>";
+            $html .= "<td>".$nave->km_orbita."</td></tr>";
         }
 
         return $html;
